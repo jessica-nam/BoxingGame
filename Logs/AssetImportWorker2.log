@@ -417,3 +417,51 @@ Received Import Request.
   path: Assets/Scripts/PlayerController.cs
   artifactKey: Guid(fa0ab0f16d1233f46a5267a86c34aead) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scripts/PlayerController.cs using Guid(fa0ab0f16d1233f46a5267a86c34aead) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80eb50fc6f3e1fba6a814bef21a1462f') in 0.035932 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 193.365479 seconds.
+  path: Assets/Scenes/Boxing.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Scenes/Boxing.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'bf94f79b923901054ee766483f52c38e') in 0.057862 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Animations/Idle 2.controller
+  artifactKey: Guid(88af78308f35dcf46bc24cd665fc32a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Animations/Idle 2.controller using Guid(88af78308f35dcf46bc24cd665fc32a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '2db956c8314d9c6b5ea13cade014ca4b') in 0.028920 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.380571 seconds.
+  path: Assets/Animations/PlayerKick.anim
+  artifactKey: Guid(2c26a1ebd1059e24889cab2a5af36a86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/PlayerKick.anim using Guid(2c26a1ebd1059e24889cab2a5af36a86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fdcf270378931ff2c57fae3aa0e13c2') in 0.025404 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Animations/Idle 1.controller
+  artifactKey: Guid(cdac479916a259d41a1cf39f944f7851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Idle 1.controller using Guid(cdac479916a259d41a1cf39f944f7851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '537a56e1ec18899ffe516ebf040c2b52') in 0.011181 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Animations/PlayerPunch.anim
+  artifactKey: Guid(1ff8f8aba8eb42b4a93215ac5e2354be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/PlayerPunch.anim using Guid(1ff8f8aba8eb42b4a93215ac5e2354be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dcc8690ea4267cedb64b40665fcccef') in 0.009017 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Animations/PlayerBlock.anim
+  artifactKey: Guid(e274fab9d7ebe9244bae7b87cf61302e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/PlayerBlock.anim using Guid(e274fab9d7ebe9244bae7b87cf61302e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a03d1e7ba36b0c8af92b20e1c4abe81') in 0.009583 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Animations/Idle.controller
+  artifactKey: Guid(72d0b5378472e0744bfe70cc1cd67f5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Idle.controller using Guid(72d0b5378472e0744bfe70cc1cd67f5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c859085abd34e6868655b9e9181024e5') in 0.010964 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

@@ -411,3 +411,44 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 8186.564113 seconds.
+  path: Assets/Animations/PlayerBlock.anim
+  artifactKey: Guid(e274fab9d7ebe9244bae7b87cf61302e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Animations/PlayerBlock.anim using Guid(e274fab9d7ebe9244bae7b87cf61302e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '8262889521e34ca6056cdc5d90be4401') in 0.110865 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.364394 seconds.
+  path: Assets/Animations/PlayerIdle.anim
+  artifactKey: Guid(9775f2daedcc07044ba86a8f721b2f2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/PlayerIdle.anim using Guid(9775f2daedcc07044ba86a8f721b2f2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8179ce92e68fc47db1768cca6f234eb7') in 0.020009 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Animations/idle4.controller
+  artifactKey: Guid(31c8bd929d951604c9f1be0ed10034cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/idle4.controller using Guid(31c8bd929d951604c9f1be0ed10034cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a19da95a54984ccfb265c71cde4f1b1') in 0.013859 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Animations/Block.controller
+  artifactKey: Guid(8b0854ff2e04aca45b55e95276284cb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Block.controller using Guid(8b0854ff2e04aca45b55e95276284cb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a08ea7f17f223191e19d5f44833fe5a') in 0.007092 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Animations/kick1.controller
+  artifactKey: Guid(aa21e0bac57dd8b4ebd8fdff02f51d41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/kick1.controller using Guid(aa21e0bac57dd8b4ebd8fdff02f51d41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfed89471c859f141ac1fcd65ea0bb2d') in 0.009457 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000068 seconds.
+  path: Assets/Animations/Idle 2.controller
+  artifactKey: Guid(88af78308f35dcf46bc24cd665fc32a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Idle 2.controller using Guid(88af78308f35dcf46bc24cd665fc32a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd7f7f2b89785293caff006346067453') in 0.007989 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

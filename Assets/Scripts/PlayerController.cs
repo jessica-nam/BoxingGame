@@ -38,6 +38,9 @@ public class PlayerController : MonoBehaviour
         }else if(Input.GetKey("w")){
             animator.Play("PlayerKick");
             StartCoroutine(DelayedAnimation());
+        }else if(Input.GetKey("e")){
+            animator.Play("PlayerBlock");
+            StartCoroutine(DelayedAnimation());
         }
 
     }
