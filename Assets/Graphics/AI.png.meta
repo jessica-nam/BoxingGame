@@ -146,7 +146,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AI_2
+      name: PunchHit
       rect:
         serializedVersion: 2
         x: 68
@@ -377,7 +377,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AI_13
+      name: kick1
       rect:
         serializedVersion: 2
         x: 113
@@ -440,7 +440,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AI_16
+      name: kick2
       rect:
         serializedVersion: 2
         x: 260
@@ -461,7 +461,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AI_17
+      name: kick3
       rect:
         serializedVersion: 2
         x: 305
@@ -608,7 +608,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AI_24
+      name: KickOuch
       rect:
         serializedVersion: 2
         x: 111
@@ -902,7 +902,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AI_38
+      name: Punch2
       rect:
         serializedVersion: 2
         x: 332
@@ -944,7 +944,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AI_40
+      name: Punch1
       rect:
         serializedVersion: 2
         x: 448
@@ -1514,13 +1514,13 @@ TextureImporter:
       name: idle
       rect:
         serializedVersion: 2
-        x: 278
-        y: 42
-        width: 29
-        height: 67
+        x: 277
+        y: 43
+        width: 30
+        height: 65
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1626,14 +1626,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      kick3: -1239257251
       AI_47: 1816625170
       AI_42: -1003402490
-      AI_2: 2044766827
-      AI_24: -2052042099
       AI_6: 269896301
       AI_15: -355906206
       AI_25: 401955011
-      AI_16: 558797833
+      Punch2: -2147448325
       AI_34: -1400596098
       AI_63: 74857958
       AI_28: 263076740
@@ -1644,21 +1643,22 @@ TextureImporter:
       AI_37: -1766167133
       AI_50: 2135673880
       AI_43: -380021919
+      KickOuch: -2052042099
       AI_27: -1188758117
       AI_60: -1132086862
       AI_45: -795452755
       AI_48: -2091219227
       AI_12: -88017394
-      AI_17: -1239257251
+      AI_68: 727737274
       AI_54: -1677347947
       AI_64: -1708364041
-      AI_68: 727737274
       AI_3: 1601172191
-      AI_38: -2147448325
-      idle: -1370041907
-      AI_4: 767699118
       AI_71: 756214601
+      idle: -1370041907
+      Punch1: -1795605040
+      AI_4: 767699118
       AI_53: -1631255937
+      Idle2: 1606098880
       AI_46: -904407263
       AI_62: 764850837
       AI_11: -1538550386
@@ -1669,7 +1669,7 @@ TextureImporter:
       AI_21: -277350227
       AI_59: -1940088224
       AI_69: -639727853
-      Idle2: 1606098880
+      kick1: 1506661452
       AI_33: 910120193
       AI_52: -819996941
       AI_5: -19324943
@@ -1681,15 +1681,14 @@ TextureImporter:
       AI_23: -2003922789
       AI_31: 346185648
       AI_51: -37306795
-      AI_13: 1506661452
+      AI_20: 2050827017
       AI_0: -1249163965
       AI_44: -234431566
-      AI_20: 2050827017
-      AI_61: 634346634
       AI_55: 1506415136
+      AI_61: 634346634
       AI_10: -1255317505
+      PunchHit: 2044766827
       AI_56: 698875145
-      AI_40: -1795605040
       AI_30: -363802306
       AI_36: 2010341939
       AI_57: 1732590518
@@ -1697,6 +1696,7 @@ TextureImporter:
       AI_35: 167048821
       AI_70: -1330276114
       AI_14: 1722553141
+      kick2: 558797833
       Idle1: -1082987982
   spritePackingTag: 
   pSDRemoveMatte: 0

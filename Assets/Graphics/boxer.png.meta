@@ -300,8 +300,8 @@ TextureImporter:
         y: 561
         width: 53
         height: 79
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.19914894, y: -0.0034202866}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -590,12 +590,12 @@ TextureImporter:
       name: kick1
       rect:
         serializedVersion: 2
-        x: 82
-        y: 240
-        width: 41
-        height: 81
-      alignment: 6
-      pivot: {x: 0, y: 0}
+        x: 83
+        y: 239
+        width: 40
+        height: 82
+      alignment: 9
+      pivot: {x: 0, y: 0.0039127627}
       border: {x: 0, y: 1, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -615,8 +615,8 @@ TextureImporter:
         y: 240
         width: 67
         height: 80
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.41380128, y: 0.004010773}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -933,8 +933,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kick3: 1359421043
-      Kick2: 1788750813
+      boxer_7: -1091521871
       boxer_19: -818769406
       boxer_2: -219157900
       boxer_3: -1746691021
@@ -965,13 +964,14 @@ TextureImporter:
       boxer_22: -1037971552
       idle5: 2085240437
       boxer_5: -1630590864
+      boxer_24: -552462822
+      Kick2: 1788750813
+      kick3: 1359421043
       boxer_28: -789073234
       boxer_6: -639547525
       boxer_21: -1093458968
-      boxer_24: -552462822
-      Block: 506645573
-      boxer_7: -1091521871
       Idle2: -1879409918
+      Block: 506645573
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
