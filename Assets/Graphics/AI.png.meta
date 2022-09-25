@@ -1091,7 +1091,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AI_47
+      name: Block
       rect:
         serializedVersion: 2
         x: 322
@@ -1626,8 +1626,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kick3: -1239257251
-      AI_47: 1816625170
+      AI_35: 167048821
       AI_42: -1003402490
       AI_6: 269896301
       AI_15: -355906206
@@ -1662,6 +1661,7 @@ TextureImporter:
       AI_46: -904407263
       AI_62: 764850837
       AI_11: -1538550386
+      Block: 1816625170
       AI_19: -2029988651
       AI_32: 1085010906
       AI_49: 498706693
@@ -1693,10 +1693,10 @@ TextureImporter:
       AI_36: 2010341939
       AI_57: 1732590518
       AI_7: -1763900367
-      AI_35: 167048821
       AI_70: -1330276114
-      AI_14: 1722553141
       kick2: 558797833
+      AI_14: 1722553141
+      kick3: -1239257251
       Idle1: -1082987982
   spritePackingTag: 
   pSDRemoveMatte: 0

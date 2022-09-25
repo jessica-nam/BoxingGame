@@ -14,6 +14,7 @@ public class EnemyTrigger : MonoBehaviour
 
     public HealthBar healthBar;
 
+
     //float shakeAmount = 0.2f;
     //Vector2 startPos;
 
@@ -46,11 +47,14 @@ public class EnemyTrigger : MonoBehaviour
             
             StartCoroutine(AnimationDone());
         }
+        
+        
     }
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.name == "PunchHitbox"){
             punchDamage = true;
             Debug.Log("Ouch!");
+            
         }else if(collision.gameObject.name == "KickHitbox"){
             kickDamage = true;
             Debug.Log("Ouch!");
@@ -70,6 +74,8 @@ public class EnemyTrigger : MonoBehaviour
         gameObject.GetComponent<Animator>().enabled = false;
         
     }
+
+    
 
 
 }
