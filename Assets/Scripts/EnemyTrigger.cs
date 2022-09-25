@@ -9,10 +9,17 @@ public class EnemyTrigger : MonoBehaviour
     bool punchDamage = false;
     bool kickDamage = false;
 
-    public int maxHealth = 100;
-    public int currentHealth;
+    private int maxHealth = 100;
+    private int currentHealth;
 
     public HealthBar healthBar;
+
+    [SerializeField]
+    GameObject PunchHitbox1;
+    [SerializeField]
+    GameObject KickHitbox1;
+    [SerializeField]
+    GameObject BlockHitbox1;
 
 
     //float shakeAmount = 0.2f;
@@ -25,6 +32,11 @@ public class EnemyTrigger : MonoBehaviour
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
+        PunchHitbox1.SetActive(false);
+        KickHitbox1.SetActive(false);
+        BlockHitbox1.SetActive(false);
+        
     }
 
     // Update is called once per frame

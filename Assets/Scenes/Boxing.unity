@@ -293,9 +293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8d9d5187848854ea54b11405cc92ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
   healthBar: {fileID: 702533013}
+  PunchHitbox1: {fileID: 2048892746}
+  KickHitbox1: {fileID: 1226187093}
+  BlockHitbox1: {fileID: 326380043}
 --- !u!1 &195239829
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +366,7 @@ GameObject:
   - component: {fileID: 326380044}
   - component: {fileID: 326380045}
   m_Layer: 0
-  m_Name: BlockHitbox (1)
+  m_Name: BlockHitbox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1000,7 +1001,7 @@ MonoBehaviour:
   isBlocking: 0
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1215100008}
   PunchHitbox: {fileID: 1536098196}
   KickHitbox: {fileID: 195239829}
   BlockHitbox: {fileID: 1085865590}
@@ -1830,7 +1831,7 @@ GameObject:
   - component: {fileID: 1226187094}
   - component: {fileID: 1226187095}
   m_Layer: 0
-  m_Name: KickHitbox (1)
+  m_Name: KickHitbox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2258,7 +2259,7 @@ GameObject:
   - component: {fileID: 2048892747}
   - component: {fileID: 2048892748}
   m_Layer: 0
-  m_Name: PunchHitbox (1)
+  m_Name: PunchHitbox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

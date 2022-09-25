@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
         PunchHitbox.SetActive(false);
         KickHitbox.SetActive(false);
         BlockHitbox.SetActive(false);
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update(){
