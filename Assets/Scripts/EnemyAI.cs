@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CodeMonkey.Utils;
 
-public class EnemyTrigger : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     Animator animator;
 
@@ -12,14 +13,15 @@ public class EnemyTrigger : MonoBehaviour
     private int maxHealth = 100;
     private int currentHealth;
 
+    [SerializeField] private GameObject target;
+    [SerializeField] private float speed = 0.5f;
+    bool isStopped;
+
     public HealthBar healthBar;
 
-    [SerializeField]
-    GameObject PunchHitbox1;
-    [SerializeField]
-    GameObject KickHitbox1;
-    [SerializeField]
-    GameObject BlockHitbox1;
+    [SerializeField] GameObject PunchHitbox1;
+    [SerializeField] GameObject KickHitbox1;
+    [SerializeField] GameObject BlockHitbox1;
 
 
     //float shakeAmount = 0.2f;
@@ -28,8 +30,9 @@ public class EnemyTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //startPos = transform.position;
+
         animator = GetComponent<Animator>();
+
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
 
@@ -42,6 +45,7 @@ public class EnemyTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AiMoveAndStopAtTarget();
         if(punchDamage){
             //transform.position = startPos + UnityEngine.Random.insideUnitCircle * shakeAmount;
             animator.Play("EnemyPunchOuch");
@@ -87,7 +91,27 @@ public class EnemyTrigger : MonoBehaviour
         
     }
 
-    
+    void AiMoveToTarget(){
+        isStopped = false;
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+    }
+
+    private void StopEnemy(){
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, 0 * Time.deltaTime);
+        isStopped = true;
+    }
+
+    private void AiMoveAndStopAtTarget(){
+        float dist = Vector2.Distance(transform.position, target.transform.position);
+        Debug.Log(dist);
+        if(dist < 1){
+            StopEnemy();
+        }else{
+            AiMoveToTarget();
+        }
+    }
+
+
 
 
 }

@@ -224,7 +224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3070072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.795, y: -0.794, z: 0}
+  m_LocalPosition: {x: 0.878, y: -0.794, z: 0}
   m_LocalScale: {x: 2.0721276, y: 1.9858161, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -268,7 +268,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.030996937, y: 0.32}
+  m_Offset: {x: 0.04323517, y: 0.32}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -279,7 +279,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.26800612, y: 0.64}
+  m_Size: {x: 0.24352965, y: 0.64}
   m_EdgeRadius: 0
 --- !u!114 &3070078
 MonoBehaviour:
@@ -293,6 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8d9d5187848854ea54b11405cc92ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 655350523}
+  speed: 0.5
   healthBar: {fileID: 702533013}
   PunchHitbox1: {fileID: 2048892746}
   KickHitbox1: {fileID: 1226187093}
@@ -322,7 +324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195239829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.669, y: 0.669, z: 0}
+  m_LocalPosition: {x: 0.582, y: 0.669, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -972,7 +974,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008816965, y: 0.385}
+  m_Offset: {x: 0.001697652, y: 0.385}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -983,7 +985,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3423661, y: 0.77}
+  m_Size: {x: 0.36339533, y: 0.77}
   m_EdgeRadius: 0
 --- !u!114 &655350529
 MonoBehaviour:
@@ -2241,7 +2243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747618843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0002, y: 0.127, z: 0}
+  m_LocalPosition: {x: -0.044, y: 0.122, z: 0}
   m_LocalScale: {x: 0.7319844, y: 0.6297973, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
