@@ -88,6 +88,7 @@ public class EnemyAI : MonoBehaviour
         animator.Play("EnemyDead");
         yield return new WaitForSeconds(0.5f);
         gameObject.GetComponent<Animator>().enabled = false;
+        StopEnemy();
         
     }
 
@@ -104,10 +105,15 @@ public class EnemyAI : MonoBehaviour
     private void AiMoveAndStopAtTarget(){
         float dist = Vector2.Distance(transform.position, target.transform.position);
         //Debug.Log(dist);
-        if(dist < 1.3f){
+        if(currentHealth > 0){
+            if(dist < 1.3f){
+                StopEnemy();
+            }else{
+                AiMoveToTarget();
+            }
+        }
+        if(currentHealth == 0){
             StopEnemy();
-        }else{
-            AiMoveToTarget();
         }
     }
 
