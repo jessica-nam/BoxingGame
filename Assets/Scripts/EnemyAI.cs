@@ -103,8 +103,8 @@ public class EnemyAI : MonoBehaviour
 
     private void AiMoveAndStopAtTarget(){
         float dist = Vector2.Distance(transform.position, target.transform.position);
-        Debug.Log(dist);
-        if(dist < 1){
+        //Debug.Log(dist);
+        if(dist < 1.3f){
             StopEnemy();
         }else{
             AiMoveToTarget();

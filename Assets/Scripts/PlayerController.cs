@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     public bool isAttacking = false;
     public bool isBlocking = false;
 
+    bool isGrounded = true;
+    [SerializeField] Transform groundCheck;
+
     bool punchDamage = false;
     bool kickDamage = false;
 
@@ -86,11 +89,18 @@ public class PlayerController : MonoBehaviour
 
     //keyboard input
     private void FixedUpdate(){
-        if(Input.GetKey("d") || Input.GetKey("right")){
+        if(Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"))){
+            isGrounded = true;
+            Debug.Log(isGrounded);
+        }else{
+            isGrounded = false;
+        }
+
+        if((Input.GetKey("d") || Input.GetKey("right")) && isGrounded){
             //check if player grounded functionality?
             rigidbody2D.velocity = new Vector2(2, rigidbody2D.velocity.y);
             //spriteRenderer.flipX = false;
-        }else if(Input.GetKey("a") || Input.GetKey("left")){
+        }else if((Input.GetKey("a") || Input.GetKey("left")) && isGrounded){
             rigidbody2D.velocity = new Vector2(-2, rigidbody2D.velocity.y);
             //spriteRenderer.flipX = true;
         }else{
@@ -98,9 +108,15 @@ public class PlayerController : MonoBehaviour
             rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
         }
         
-        if(Input.GetKey("space")){
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 2);
+        // fixes wanky sliding jumps
+        if(isGrounded){
+            if(Input.GetKey("space")){
+                Debug.Log("Jump");
+                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 3);
+                isGrounded = false;
+            }
         }
+        
 
     }
 
