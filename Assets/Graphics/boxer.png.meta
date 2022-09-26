@@ -716,12 +716,12 @@ TextureImporter:
       name: Dead
       rect:
         serializedVersion: 2
-        x: 218
-        y: 161
-        width: 58
-        height: 67
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 217
+        y: 160
+        width: 60
+        height: 68
+      alignment: 9
+      pivot: {x: 0.9807831, y: 0.6029847}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -934,7 +934,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       kick3: 1359421043
-      Dead: -754061775
+      boxer_6: -639547525
       boxer_19: -818769406
       boxer_2: -219157900
       boxer_3: -1746691021
@@ -967,10 +967,10 @@ TextureImporter:
       boxer_24: -552462822
       Kick2: 1788750813
       boxer_21: -1093458968
-      Idle2: -1879409918
-      boxer_6: -639547525
-      boxer_7: -1091521871
       boxer_28: -789073234
+      Idle2: -1879409918
+      boxer_7: -1091521871
+      Dead: -754061775
       Block: 506645573
   spritePackingTag: 
   pSDRemoveMatte: 0

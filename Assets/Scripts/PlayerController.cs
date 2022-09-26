@@ -12,30 +12,30 @@ public class PlayerController : MonoBehaviour
 
     public bool isAttacking = false;
     public bool isBlocking = false;
+    public bool isDead = false;
 
     bool isGrounded = true;
     [SerializeField] Transform groundCheck;
 
     bool punchDamage = false;
     bool kickDamage = false;
+    public bool noDamageToAI = false;
 
     public int maxHealth = 100;
     public int currentHealth;
 
     public HealthBar healthBar;
 
-    [SerializeField]
-    GameObject PunchHitbox;
-    [SerializeField]
-    GameObject KickHitbox;
-    [SerializeField]
-    GameObject BlockHitbox;
+    [SerializeField] GameObject PunchHitbox;
+    [SerializeField] GameObject KickHitbox;
+    [SerializeField] GameObject BlockHitbox;
 
     [SerializeField] GameObject PunchHitbox1;
     [SerializeField] GameObject KickHitbox1;
     [SerializeField] GameObject BlockHitbox1;
 
-    private void Awake(){
+    private void Awake()
+    {
         instance = this;
     }
 
@@ -52,121 +52,160 @@ public class PlayerController : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    void Update(){
-        if(Input.GetButtonDown("Punch") && !isAttacking){
-            isAttacking = true;
-            animator.Play("PlayerPunch");
-            isAttacking = false;
-            StartCoroutine(GotPunched());
+    void Update()
+    {
+        if (Countdown.instance.CountDownDone)
+        {
+            if (Input.GetButtonDown("Punch") && !isAttacking)
+            {
+                isAttacking = true;
+                animator.Play("PlayerPunch");
+                isAttacking = false;
+                StartCoroutine(GotPunched());
 
-        }else if(Input.GetButtonDown("Kick") && !isAttacking){
-            isAttacking = true;
-            animator.Play("PlayerKick");
-            isAttacking = false;
-            StartCoroutine(GotKicked());
+            }
+            else if (Input.GetButtonDown("Kick") && !isAttacking)
+            {
+                isAttacking = true;
+                animator.Play("PlayerKick");
+                isAttacking = false;
+                StartCoroutine(GotKicked());
 
-        }else if(Input.GetButtonDown("Block")){
-            isBlocking = true;
-            animator.Play("PlayerBlock");
-            isBlocking = false;
-            StartCoroutine(Blocked());
+            }
+            else if (Input.GetButtonDown("Block"))
+            {
+                isBlocking = true;
+                animator.Play("PlayerBlock");
+                isBlocking = false;
+                StartCoroutine(Blocked());
+            }
         }
 
-        if(punchDamage){
+        if (punchDamage)
+        {
             //transform.position = startPos + UnityEngine.Random.insideUnitCircle * shakeAmount;
             animator.Play("PlayerOuch");
             GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, GetComponent<Rigidbody2D>().velocity.y);
             Damage(10);
             punchDamage = false;
-        }   
-        if(kickDamage){
+        }
+        if (kickDamage)
+        {
             animator.Play("PlayerOuch");
             GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, GetComponent<Rigidbody2D>().velocity.y);
             Damage(20);
             kickDamage = false;
-        }  
-        if (currentHealth == 0){
-            
+        }
+        if (currentHealth == 0)
+        {
+            isDead = true;
             StartCoroutine(AnimationDone());
         }
     }
 
     //keyboard input
-    private void FixedUpdate(){
-        if(Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"))){
+    private void FixedUpdate()
+    {
+        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        {
             isGrounded = true;
             Debug.Log(isGrounded);
-        }else{
+        }
+        else
+        {
             isGrounded = false;
         }
+        if (Countdown.instance.CountDownDone)
+        {
 
-        if((Input.GetKey("d") || Input.GetKey("right")) && isGrounded){
-            //check if player grounded functionality?
-            rigidbody2D.velocity = new Vector2(2, rigidbody2D.velocity.y);
-            //spriteRenderer.flipX = false;
-        }else if((Input.GetKey("a") || Input.GetKey("left")) && isGrounded){
-            rigidbody2D.velocity = new Vector2(-2, rigidbody2D.velocity.y);
-            //spriteRenderer.flipX = true;
-        }else{
-            //eliminate sliding
-            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+            if ((Input.GetKey("d") || Input.GetKey("right")) && isGrounded)
+            {
+                //check if player grounded functionality?
+                rigidbody2D.velocity = new Vector2(2, rigidbody2D.velocity.y);
+                //spriteRenderer.flipX = false;
+            }
+            else if ((Input.GetKey("a") || Input.GetKey("left")) && isGrounded)
+            {
+                rigidbody2D.velocity = new Vector2(-2, rigidbody2D.velocity.y);
+                //spriteRenderer.flipX = true;
+            }
+            else
+            {
+                //eliminate sliding
+                rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+            }
+
         }
-        
         // fixes wanky sliding jumps
-        if(isGrounded){
-            if(Input.GetKey("space")){
+        if (isGrounded)
+        {
+            if (Input.GetKey("space"))
+            {
                 Debug.Log("Jump");
                 rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 3);
                 isGrounded = false;
             }
         }
-        
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.name == "PunchHitbox1"){
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "PunchHitbox1")
+        {
             Debug.Log("AI punched me");
             punchDamage = true;
             //Debug.Log("Ouch!");
-            
-        }else if(collision.gameObject.name == "KickHitbox1"){
+
+        }
+        else if (collision.gameObject.name == "KickHitbox1")
+        {
             kickDamage = true;
             Debug.Log("Ai kicked me!");
         }
-        
+        else if (collision.gameObject.name == "BlockHitbox1")
+        {
+            noDamageToAI = true;
+            Debug.Log("Ai blocked me!");
+        }
+
     }
 
-    void Damage(int damage){
+    void Damage(int damage)
+    {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
 
-    IEnumerator GotPunched ()
+    IEnumerator GotPunched()
     {
         PunchHitbox.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         PunchHitbox.SetActive(false);
-        if(!isAttacking){
+        if (!isAttacking)
+        {
             animator.Play("PlayerIdle");
         }
     }
 
-    IEnumerator GotKicked ()
+    IEnumerator GotKicked()
     {
         KickHitbox.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         KickHitbox.SetActive(false);
-        if(!isAttacking){
+        if (!isAttacking)
+        {
             animator.Play("PlayerIdle");
         }
     }
-    IEnumerator Blocked ()
+    IEnumerator Blocked()
     {
         BlockHitbox.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         BlockHitbox.SetActive(false);
-        if(!isBlocking){
+        EnemyAI.instance.noDamageToPlayer = false;
+        if (!isBlocking)
+        {
             animator.Play("PlayerIdle");
         }
     }
@@ -174,8 +213,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator AnimationDone()
     {
         animator.Play("PlayerDead");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         gameObject.GetComponent<Animator>().enabled = false;
-        
+
     }
 }
