@@ -301,6 +301,7 @@ MonoBehaviour:
   PunchHitbox1: {fileID: 2048892746}
   KickHitbox1: {fileID: 1226187093}
   BlockHitbox1: {fileID: 326380043}
+  roll: 0
 --- !u!60 &3070079
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1012,7 +1013,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655350523}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1052,6 +1053,9 @@ MonoBehaviour:
   PunchHitbox: {fileID: 1536098196}
   KickHitbox: {fileID: 195239829}
   BlockHitbox: {fileID: 1085865590}
+  PunchHitbox1: {fileID: 2048892746}
+  KickHitbox1: {fileID: 1226187093}
+  BlockHitbox1: {fileID: 326380043}
 --- !u!60 &655350530
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1059,7 +1063,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655350523}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1934,7 +1938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226187093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.001, y: 0.406, z: 0}
+  m_LocalPosition: {x: -0.001, y: 0.312, z: 0}
   m_LocalScale: {x: 0.88155764, y: 0.80873543, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

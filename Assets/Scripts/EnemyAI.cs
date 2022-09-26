@@ -23,12 +23,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] GameObject KickHitbox1;
     [SerializeField] GameObject BlockHitbox1;
 
+    public int roll;
+
 
     //float shakeAmount = 0.2f;
     //Vector2 startPos;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
 
         animator = GetComponent<Animator>();
@@ -39,13 +41,54 @@ public class EnemyAI : MonoBehaviour
         PunchHitbox1.SetActive(false);
         KickHitbox1.SetActive(false);
         BlockHitbox1.SetActive(false);
+
+        while(true){
+            yield return new WaitForSeconds(3);
+            int roll = Random.Range(0, 3);
+            animator.SetInteger("AttackIndex", roll);
+            if(roll == 0){
+                StartCoroutine(GotPunched());
+            }else if(roll == 1){
+                StartCoroutine(GotKicked());
+            }else if(roll == 2){
+                StartCoroutine(Blocked());
+            }
+            // animator.SetTrigger("Attack");
+            
+            
+        }
         
+    }
+
+    IEnumerator GotPunched ()
+    {
+        PunchHitbox1.SetActive(true);
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.5f);
+        PunchHitbox1.SetActive(false);
+    
+    }
+    IEnumerator GotKicked ()
+    {
+        KickHitbox1.SetActive(true);
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.5f);
+        KickHitbox1.SetActive(false);
+    }
+    IEnumerator Blocked ()
+    {
+        BlockHitbox1.SetActive(true);
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.5f);
+        BlockHitbox1.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         AiMoveAndStopAtTarget();
+
+        
         if(punchDamage){
             //transform.position = startPos + UnityEngine.Random.insideUnitCircle * shakeAmount;
             animator.Play("EnemyPunchOuch");
@@ -117,6 +160,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    
 
 
 

@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject BlockHitbox;
 
+    [SerializeField] GameObject PunchHitbox1;
+    [SerializeField] GameObject KickHitbox1;
+    [SerializeField] GameObject BlockHitbox1;
+
     private void Awake(){
         instance = this;
     }
@@ -122,12 +126,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.name == "PunchHitbox1"){
+            Debug.Log("AI punched me");
             punchDamage = true;
-            Debug.Log("Ouch!");
+            //Debug.Log("Ouch!");
             
         }else if(collision.gameObject.name == "KickHitbox1"){
             kickDamage = true;
-            Debug.Log("Ouch!");
+            Debug.Log("Ai kicked me!");
         }
         
     }
