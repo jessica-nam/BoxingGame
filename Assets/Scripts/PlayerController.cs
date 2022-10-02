@@ -151,6 +151,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+Debug.Log("got hit: " + collision.gameObject.name);
+
         if (collision.gameObject.name == "PunchHitbox1")
         {
             Debug.Log("AI punched me");
