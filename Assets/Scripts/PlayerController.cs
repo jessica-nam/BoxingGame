@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
 
+    public AudioSource audioPlayer;
+    public AudioSource audioPlayer1;
+
     Animator animator;
     Rigidbody2D rigidbody2D;
     SpriteRenderer spriteRenderer;
@@ -157,12 +160,14 @@ Debug.Log("got hit: " + collision.gameObject.name);
         {
             Debug.Log("AI punched me");
             punchDamage = true;
+            audioPlayer.Play();
             //Debug.Log("Ouch!");
 
         }
         else if (collision.gameObject.name == "KickHitbox1")
         {
             kickDamage = true;
+            audioPlayer1.Play();
             Debug.Log("Ai kicked me!");
         }
         else if (collision.gameObject.name == "BlockHitbox1")

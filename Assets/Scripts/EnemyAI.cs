@@ -6,6 +6,9 @@ public class EnemyAI : MonoBehaviour
 {
     public static EnemyAI instance;
 
+    public AudioSource audioPlayer;
+    public AudioSource audioPlayer1;
+
     Animator animator;
 
     bool punchDamage = false;
@@ -112,6 +115,7 @@ public class EnemyAI : MonoBehaviour
         {
             //transform.position = startPos + UnityEngine.Random.insideUnitCircle * shakeAmount;
             animator.Play("EnemyPunchOuch");
+            audioPlayer.Play();
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.5f, GetComponent<Rigidbody2D>().velocity.y);
             Damage(10);
             punchDamage = false;
@@ -119,6 +123,7 @@ public class EnemyAI : MonoBehaviour
         if (kickDamage)
         {
             animator.Play("EnemyPunchOuch");
+            audioPlayer1.Play();
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.5f, GetComponent<Rigidbody2D>().velocity.y);
             Damage(20);
             kickDamage = false;
@@ -190,7 +195,7 @@ public class EnemyAI : MonoBehaviour
         //Debug.Log(dist);
         if (currentHealth > 0)
         {
-            if (dist < 1.0f)
+            if (dist < 0.8f)
             {
                 StopEnemy();
             }
