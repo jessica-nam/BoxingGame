@@ -719,9 +719,9 @@ TextureImporter:
         x: 217
         y: 160
         width: 60
-        height: 68
+        height: 69
       alignment: 9
-      pivot: {x: 0.9807831, y: 0.6029847}
+      pivot: {x: 0.75191444, y: 1.0988511}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -933,7 +933,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kick3: 1359421043
+      boxer_7: -1091521871
       boxer_6: -639547525
       boxer_19: -818769406
       boxer_2: -219157900
@@ -964,14 +964,14 @@ TextureImporter:
       Ouch: 309772445
       idle5: 2085240437
       boxer_5: -1630590864
-      boxer_24: -552462822
       Kick2: 1788750813
-      boxer_21: -1093458968
       boxer_28: -789073234
-      Idle2: -1879409918
-      boxer_7: -1091521871
-      Dead: -754061775
+      kick3: 1359421043
+      boxer_24: -552462822
       Block: 506645573
+      boxer_21: -1093458968
+      Idle2: -1879409918
+      Dead: -754061775
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

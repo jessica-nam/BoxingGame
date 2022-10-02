@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     bool kickDamage = false;
     bool attack = true;
     public bool noDamageToPlayer = false;
+    bool isDeadAI = false;
 
     private int maxHealth = 100;
     private int currentHealth;
@@ -53,7 +54,7 @@ public class EnemyAI : MonoBehaviour
         KickHitbox1.SetActive(false);
         BlockHitbox1.SetActive(false);
         yield return new WaitForSeconds(4);
-        while (attack)
+        while (attack && !isDeadAI)
         {
             int rand = Random.Range(1, 5);
             yield return new WaitForSeconds(rand);
@@ -74,6 +75,7 @@ public class EnemyAI : MonoBehaviour
             if (PlayerController.instance.isDead)
             {
                 attack = false;
+                isDeadAI = true;
             }
             // animator.SetTrigger("Attack");  
         }
@@ -133,9 +135,9 @@ public class EnemyAI : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.5f, GetComponent<Rigidbody2D>().velocity.y);
             PlayerController.instance.noDamageToAI = false;
         }
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
-
+            isDeadAI = true;
             StartCoroutine(AnimationDone());
         }
 

@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
             Damage(20);
             kickDamage = false;
         }
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             isDead = true;
             StartCoroutine(AnimationDone());
