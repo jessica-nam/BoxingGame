@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -63,7 +65,6 @@ public class PlayerController : MonoBehaviour
             {
                 isAttacking = true;
                 animator.Play("PlayerPunch");
-                isAttacking = false;
                 StartCoroutine(GotPunched());
 
             }
@@ -71,7 +72,6 @@ public class PlayerController : MonoBehaviour
             {
                 isAttacking = true;
                 animator.Play("PlayerKick");
-                isAttacking = false;
                 StartCoroutine(GotKicked());
 
             }
@@ -89,20 +89,21 @@ public class PlayerController : MonoBehaviour
             //transform.position = startPos + UnityEngine.Random.insideUnitCircle * shakeAmount;
             animator.Play("PlayerOuch");
             GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, GetComponent<Rigidbody2D>().velocity.y);
-            Damage(10);
+            Damage(5);
             punchDamage = false;
         }
         if (kickDamage)
         {
             animator.Play("PlayerOuch");
             GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, GetComponent<Rigidbody2D>().velocity.y);
-            Damage(20);
+            Damage(10);
             kickDamage = false;
         }
         if (currentHealth <= 0)
         {
             isDead = true;
             StartCoroutine(AnimationDone());
+            StartCoroutine(GameOver());
         }
     }
 
@@ -118,7 +119,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
-        if (Countdown.instance.CountDownDone)
+        if (Countdown.instance.CountDownDone && !EnemyAI.instance.isAttackingAI)
         {
 
             if ((Input.GetKey("d") || Input.GetKey("right")) && isGrounded)
@@ -154,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-Debug.Log("got hit: " + collision.gameObject.name);
+        Debug.Log("got hit: " + collision.gameObject.name);
 
         if (collision.gameObject.name == "PunchHitbox1")
         {
@@ -189,6 +190,7 @@ Debug.Log("got hit: " + collision.gameObject.name);
         PunchHitbox.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         PunchHitbox.SetActive(false);
+        isAttacking = false;
         if (!isAttacking)
         {
             animator.Play("PlayerIdle");
@@ -200,6 +202,7 @@ Debug.Log("got hit: " + collision.gameObject.name);
         KickHitbox.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         KickHitbox.SetActive(false);
+        isAttacking = false;
         if (!isAttacking)
         {
             animator.Play("PlayerIdle");
@@ -223,5 +226,10 @@ Debug.Log("got hit: " + collision.gameObject.name);
         yield return new WaitForSeconds(0.7f);
         gameObject.GetComponent<Animator>().enabled = false;
 
+    }
+
+    IEnumerator GameOver(){
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("GameOver");
     }
 }

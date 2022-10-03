@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class EnemyAI : MonoBehaviour
 {
@@ -16,9 +18,10 @@ public class EnemyAI : MonoBehaviour
     bool attack = true;
     public bool noDamageToPlayer = false;
     bool isDeadAI = false;
+    public bool isAttackingAI = false;
 
     private int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
 
     [SerializeField] private GameObject target;
     [SerializeField] private float speed = 0.5f;
@@ -56,15 +59,15 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(4);
         while (attack && !isDeadAI)
         {
-            int rand = Random.Range(1, 5);
+            int rand = Random.Range(1, 3);
             yield return new WaitForSeconds(rand);
-            int roll = Random.Range(0, 3);
+            int roll = Random.Range(0, 5);
             animator.SetInteger("AttackIndex", roll);
-            if (roll == 0)
+            if (roll == 0 || roll == 3)
             {
                 StartCoroutine(GotPunched());
             }
-            else if (roll == 1)
+            else if (roll == 1 || roll == 4)
             {
                 StartCoroutine(GotKicked());
             }
@@ -84,18 +87,22 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator GotPunched()
     {
+        isAttackingAI = true;
         PunchHitbox1.SetActive(true);
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.5f);
         PunchHitbox1.SetActive(false);
+        isAttackingAI = false;
 
     }
     IEnumerator GotKicked()
     {
+        isAttackingAI = true;
         KickHitbox1.SetActive(true);
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.5f);
         KickHitbox1.SetActive(false);
+        isAttackingAI = false;
     }
     IEnumerator Blocked()
     {
@@ -119,7 +126,7 @@ public class EnemyAI : MonoBehaviour
             animator.Play("EnemyPunchOuch");
             audioPlayer.Play();
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.5f, GetComponent<Rigidbody2D>().velocity.y);
-            Damage(10);
+            Damage(7);
             punchDamage = false;
         }
         if (kickDamage)
@@ -127,7 +134,7 @@ public class EnemyAI : MonoBehaviour
             animator.Play("EnemyPunchOuch");
             audioPlayer1.Play();
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.5f, GetComponent<Rigidbody2D>().velocity.y);
-            Damage(20);
+            Damage(14);
             kickDamage = false;
         }
         if (PlayerController.instance.noDamageToAI)
@@ -139,6 +146,7 @@ public class EnemyAI : MonoBehaviour
         {
             isDeadAI = true;
             StartCoroutine(AnimationDone());
+            StartCoroutine(GameOver());
         }
 
 
@@ -209,10 +217,14 @@ public class EnemyAI : MonoBehaviour
         if (currentHealth == 0)
         {
             StopEnemy();
+            StartCoroutine(GameOver());
         }
     }
 
-
+    IEnumerator GameOver(){
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("GameOver");
+    }
 
 
 
