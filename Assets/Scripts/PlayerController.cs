@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviour
         {
             //transform.position = startPos + UnityEngine.Random.insideUnitCircle * shakeAmount;
             animator.Play("PlayerOuch");
+            EnergyBarEnemy.instance.UseEnergyEnemy(20);
             GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, GetComponent<Rigidbody2D>().velocity.y);
             Damage(5);
             punchDamage = false;
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
         if (kickDamage)
         {
             animator.Play("PlayerOuch");
+            EnergyBarEnemy.instance.UseEnergyEnemy(30);
             GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, GetComponent<Rigidbody2D>().velocity.y);
             Damage(10);
             kickDamage = false;

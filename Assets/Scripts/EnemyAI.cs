@@ -67,6 +67,7 @@ public class EnemyAI : MonoBehaviour
                 yield return new WaitForSeconds(rand);
                 int roll = Random.Range(0, 5);
                 animator.SetInteger("AttackIndex", roll);
+                if(EnergyBarEnemy.instance.currentEnergyEnemy >= 20){
                 if (roll == 0 || roll == 3)
                 {
                     //if(EnergyBarEnemy.instance.currentEnergy >= 20){
@@ -81,6 +82,7 @@ public class EnemyAI : MonoBehaviour
                         StartCoroutine(GetKicked());
                         //EnergyBarEnemy.instance.UseEnergy(30);
                     //}
+                }
                 }
                 else if (roll == 2)
                 {
