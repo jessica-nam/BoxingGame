@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour
@@ -39,9 +40,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject KickHitbox1;
     [SerializeField] GameObject BlockHitbox1;
 
+    [SerializeField] private Image KO;
+
     private void Awake()
     {
         instance = this;
+        
     }
 
     // Start is called before the first frame update
@@ -59,12 +63,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Countdown.instance.CountDownDone)
+        if (Countdown.instance.CountDownDone && EnergyBar.instance.currentEnergy >= 20)
         {
             if (Input.GetButtonDown("Punch") && !isAttacking)
             {
                 isAttacking = true;
                 animator.Play("PlayerPunch");
+                EnergyBar.instance.UseEnergy(20);
                 StartCoroutine(GotPunched());
 
             }
@@ -72,6 +77,7 @@ public class PlayerController : MonoBehaviour
             {
                 isAttacking = true;
                 animator.Play("PlayerKick");
+                EnergyBar.instance.UseEnergy(30);
                 StartCoroutine(GotKicked());
 
             }
@@ -81,6 +87,8 @@ public class PlayerController : MonoBehaviour
                 animator.Play("PlayerBlock");
                 isBlocking = false;
                 StartCoroutine(Blocked());
+            }else{
+                Debug.Log("Cannot attack - wait for recharge");
             }
         }
 
@@ -102,8 +110,12 @@ public class PlayerController : MonoBehaviour
         if (currentHealth <= 0)
         {
             isDead = true;
+            KO.enabled = true;
+            ShakeBehavior.instance.TriggerShake();
             StartCoroutine(AnimationDone());
             StartCoroutine(GameOver());
+        }else{
+            KO.enabled = false;
         }
     }
 
@@ -229,7 +241,7 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator GameOver(){
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene("GameOver");
     }
 }

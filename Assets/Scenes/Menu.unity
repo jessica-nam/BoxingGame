@@ -432,8 +432,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4, y: -11}
-  m_SizeDelta: {x: 416.6068, y: -50.899}
+  m_AnchoredPosition: {x: 30, y: -19}
+  m_SizeDelta: {x: 416.6068, y: 119.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491044579
 MonoBehaviour:
@@ -455,16 +455,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Left Arrow - Move left
-
-    Right Arrow - Move right
-
-    Q - Punch
-
-    W
-    - Kick
-
-    E - Block'
+  m_text: "Left Arrow - Move left\nRight Arrow - Move right\nQ - Punch       Space
+    - jump\nW - Kick          ESC - Pause \nE - Block"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dbe8f6af9cb635e42964816e156fe597, type: 2}
   m_sharedMaterial: {fileID: -4470613168952050256, guid: dbe8f6af9cb635e42964816e156fe597, type: 2}
@@ -498,7 +490,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -694,7 +686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &703621520
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1972,7 +1964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1646601765
 RectTransform:
   m_ObjectHideFlags: 0
