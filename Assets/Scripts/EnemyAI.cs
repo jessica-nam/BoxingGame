@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     public int currentHealth;
 
     [SerializeField] private GameObject target;
-    [SerializeField] private float speed = 0.5f;
+    [SerializeField] private float speed = 0.7f;
     bool isStopped;
 
     public HealthBar healthBar;
@@ -61,39 +61,42 @@ public class EnemyAI : MonoBehaviour
         BlockHitbox1.SetActive(false);
         yield return new WaitForSeconds(4);
         // if(EnergyBarEnemy.instance.currentEnergy >= 20){
-            while (attack && !isDeadAI)
+        while (attack && !isDeadAI)
+        {
+            int rand = Random.Range(1, 3);
+            yield return new WaitForSeconds(rand);
+            int roll = Random.Range(0, 5);
+            animator.SetInteger("AttackIndex", roll);
+            if (EnergyBarEnemy.instance.currentEnergyEnemy >= 20)
             {
-                int rand = Random.Range(1, 3);
-                yield return new WaitForSeconds(rand);
-                int roll = Random.Range(0, 5);
-                animator.SetInteger("AttackIndex", roll);
-                if(EnergyBarEnemy.instance.currentEnergyEnemy >= 20){
                 if (roll == 0 || roll == 3)
                 {
-                    //if(EnergyBarEnemy.instance.currentEnergy >= 20){
-                        StartCoroutine(GetPunched());
-                        //EnergyBarEnemy.instance.UseEnergy(20);
+
+                    StartCoroutine(GetPunched());
+
+
+                    //EnergyBarEnemy.instance.UseEnergy(20);
                     //}
-                    
+
                 }
                 else if (roll == 1 || roll == 4)
                 {
                     //if(EnergyBarEnemy.instance.currentEnergy >= 30){
-                        StartCoroutine(GetKicked());
-                        //EnergyBarEnemy.instance.UseEnergy(30);
+                    StartCoroutine(GetKicked());
+                    //EnergyBarEnemy.instance.UseEnergy(30);
                     //}
                 }
-                }
-                else if (roll == 2)
-                {
-                    StartCoroutine(Blocked());
-                }
-            
-                if (PlayerController.instance.isDead)
-                {
-                    attack = false;
-                    isDeadAI = true;
-                }
+            }
+            else if (roll == 2)
+            {
+                StartCoroutine(Blocked());
+            }
+
+            if (PlayerController.instance.isDead)
+            {
+                attack = false;
+                isDeadAI = true;
+            }
             //}
             // animator.SetTrigger("Attack");  
         }
@@ -164,7 +167,9 @@ public class EnemyAI : MonoBehaviour
             ShakeBehavior.instance.TriggerShake();
             StartCoroutine(AnimationDone());
             StartCoroutine(GameOver());
-        }else{
+        }
+        else
+        {
             KO1.enabled = false;
         }
 
@@ -224,7 +229,7 @@ public class EnemyAI : MonoBehaviour
         //Debug.Log(dist);
         if (currentHealth > 0)
         {
-            if (dist < 0.8f)
+            if (dist < 0.7f)
             {
                 StopEnemy();
             }
@@ -240,7 +245,8 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    IEnumerator GameOver(){
+    IEnumerator GameOver()
+    {
         yield return new WaitForSeconds(4f);
         SceneManager.LoadScene("GameOver");
     }

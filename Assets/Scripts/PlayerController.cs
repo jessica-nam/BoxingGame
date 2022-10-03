@@ -139,12 +139,12 @@ public class PlayerController : MonoBehaviour
             if ((Input.GetKey("d") || Input.GetKey("right")) && isGrounded)
             {
                 //check if player grounded functionality?
-                rigidbody2D.velocity = new Vector2(2, rigidbody2D.velocity.y);
+                rigidbody2D.velocity = new Vector2(1.5f, rigidbody2D.velocity.y);
                 //spriteRenderer.flipX = false;
             }
             else if ((Input.GetKey("a") || Input.GetKey("left")) && isGrounded)
             {
-                rigidbody2D.velocity = new Vector2(-2, rigidbody2D.velocity.y);
+                rigidbody2D.velocity = new Vector2(-1.5f, rigidbody2D.velocity.y);
                 //spriteRenderer.flipX = true;
             }
             else

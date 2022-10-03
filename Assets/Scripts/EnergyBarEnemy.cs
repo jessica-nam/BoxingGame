@@ -50,7 +50,7 @@ public class EnergyBarEnemy : MonoBehaviour
     }
 
     private IEnumerator RegenEnemyEnergy(){
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         while(currentEnergyEnemy < maxEnergyEnemy){
             currentEnergyEnemy += maxEnergyEnemy / 100;
             energyBarEnemy.value = currentEnergyEnemy;
